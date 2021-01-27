@@ -37,7 +37,7 @@ export default class Application extends EventEmitter {
     swUniverse.createSpecies();
 
     this.data.universe = swUniverse;
-    console.log(this.data.universe);
+
     this.emit(Application.events.APP_READY);
   }
 }

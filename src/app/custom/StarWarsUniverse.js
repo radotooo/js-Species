@@ -24,6 +24,7 @@ export default class StarWarsUniverse extends EventEmitter {
     this.emit(StarWarsUniverse.events.SPECIES_CREATED, {
       speciesCount: this.species.length,
     });
+
     if (this.species.length >= this._maxSpecies) {
       this.emit(StarWarsUniverse.events.MAX_SPECIES_REACHED);
     } else {
@@ -32,13 +33,13 @@ export default class StarWarsUniverse extends EventEmitter {
   }
 
   get speciesCount() {
-    return this.species.length();
+    return this.species.length;
   }
 
   createSpecies() {
     let specie = new Species();
 
-    specie.on('species_created', () => {
+    specie.on(StarWarsUniverse.events.SPECIES_CREATED, () => {
       this._onSpeciesCreated(specie);
     });
 
