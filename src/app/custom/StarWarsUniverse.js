@@ -14,19 +14,20 @@ export default class StarWarsUniverse extends EventEmitter {
       SPECIES_CREATED: 'species_created',
     };
   }
-  _onSpeciesCreated(specie){
+  _onSpeciesCreated(specie) {
     this.species.push(specie);
-    this.emit(Application.events.SPECIES_CREATED, this.speciesCount)
+    this.emit(Application.events.SPECIES_CREATED, this.speciesCount);
   }
+
   get speciesCount() {
     return this.species.length();
   }
+
   createSpecies() {
     let specie = new Species();
 
-    this.on('species_created', () => {
-      );
-    });
-    specie.init(`https://swapi.dev/api/species/${this.species.length + 1}`
+    this.on('species_created', this._onSpeciesCreated());
+
+    specie.init(`https://swapi.booost.bg/api/${this.species.length + 1}`);
   }
 }

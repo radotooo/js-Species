@@ -10,7 +10,7 @@ export default class Species extends EventEmitter {
       SPECIES_CREATED: 'species_created',
     };
   }
-  async init(url = 'https://swapi.dev/api/species/1/') {
+  async init(url) {
     const response = await fetch(url);
     const [name, clasification] = await response.json();
     this.name = name;
