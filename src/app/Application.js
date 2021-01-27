@@ -33,11 +33,11 @@ export default class Application extends EventEmitter {
   async init() {
     // Initiate classes and wait for async operations here.
     const swUniverse = new StarWarsUniverse();
+
     swUniverse.createSpecies();
+
     this.data.universe = swUniverse;
-
-    this.data.universe.createSpecies();
-
+    console.log(this.data.universe);
     this.emit(Application.events.APP_READY);
   }
 }
