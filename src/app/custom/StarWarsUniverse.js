@@ -43,6 +43,8 @@ export default class StarWarsUniverse extends EventEmitter {
       this._onSpeciesCreated(specie);
     });
 
-    specie.init(`https://swapi.dev/api/species/${this.species.length + 1}/`);
+    specie.init(
+      `https://swapi.booost.bg/api/species/${this.species.length + 1}/`
+    );
   }
 }

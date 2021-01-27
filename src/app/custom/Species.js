@@ -9,17 +9,17 @@ export default class Species extends EventEmitter {
     super();
 
     this.name = null;
-    this.clasification = null;
+    this.classification = null;
   }
   static get events() {
     return EVENTS;
   }
-  async init(url = 'https://swapi.dev/api/species/1/') {
+  async init(url = 'https://swapi.booost.bg/api/species/1/') {
     const response = await fetch(url);
     const data = await response.json();
 
     this.name = data.name;
-    this.clasification = data.clasification;
+    this.classification = data.classification;
 
     this.emit(Species.events.SPECIES_CREATED);
   }
